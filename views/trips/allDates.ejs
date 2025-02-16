@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Dates (Admin)</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body>
+    <h1>All Dates (Admin)</h1>
+    <div>
+        <select id="datesDropdown" onchange="navigateToTrip()">
+            <option value="" disabled selected>Select a date</option>
+            <% trips.sort((a, b) => new Date(b.tripDate) - new Date(a.tripDate)); %>
+            <% for (let trip of trips) { 
+                let tripDate = new Date(trip.tripDate); 
+                let isPastDate = tripDate < new Date(); %>
+                <option value="/trips/<%= trip._id %>" class="<%= isPastDate ? 'past-date' : '' %>">
+                    <%= tripDate.toLocaleDateString('en-US', { 
+                        weekday: 'short', 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    }) %>
+                </option>
+            <% } %>
+        </select>
+    </div>
+    <br>
+    <div>
+        <a href="/trips/">Back to Home Page</a>
+    </div>
+   
+</body>
+
+<script src="/script.js"></script>
+
+</html>

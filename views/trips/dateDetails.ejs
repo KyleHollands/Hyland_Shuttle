@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body>
+    <h1>
+        <%= new Date(trip.tripDate).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) %>
+    </h1>
+
+    <h2>Northbound</h2>
+    <ul>
+        <% for (let passenger of trip.trips) { %>
+            <% if (passenger.direction === 'Northbound') { %>
+                <li>
+                    <strong>Name:</strong> <%= passenger.firstName + ' ' + passenger.lastName %><br>
+                    <strong>Phone Number:</strong> <%= passenger.phoneNumber %><br>
+                    <strong>E-mail:</strong> <%= passenger.email %><br>
+                    <strong>Number of Passengers:</strong> <%= passenger.numberOfPassengers %><br>
+                    <strong>Pick-Up Location:</strong> <%= passenger.pickupLocation %><br>
+                    <strong>Drop-Off Location:</strong> <%= passenger.dropoffLocation %><br>
+                    <strong>Booking ID:</strong> <%= passenger._id %><br><br>
+                </li>
+            <% } %>
+        <% } %>
+    </ul>
+
+    <h2>Southbound</h2>
+    <ul>
+        <% for (let passenger of trip.trips) { %>
+            <% if (passenger.direction === 'Southbound') { %>
+                <li>
+                    <strong>Name:</strong> <%= passenger.firstName + ' ' + passenger.lastName %><br>
+                    <strong>Phone Number:</strong> <%= passenger.phoneNumber %><br>
+                    <strong>E-mail:</strong> <%= passenger.email %><br>
+                    <strong>Number of Passengers:</strong> <%= passenger.numberOfPassengers %><br>
+                    <strong>Pick-Up Location:</strong> <%= passenger.pickupLocation %><br>
+                    <strong>Drop-Off Location:</strong> <%= passenger.dropoffLocation %><br>
+                    <strong>Booking ID:</strong> <%= passenger._id %><br><br>
+                </li>
+            <% } %>
+        <% } %>
+    </ul>
+
+    <div>
+        <a href="/trips/">Back to Home Page</a>
+    </div>
+
+    <div>
+        <a href="/trips/allDates/">Back to All Dates</a>
+    </div>
+
+</body>
+
+</html>

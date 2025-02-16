@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trip Confirmation</title>
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body>
+    <main>
+        <h1>Trip Confirmation</h1>
+        <p>Thank you for booking your trip, <%= passenger.firstName %> <%= passenger.lastName %>!</p>
+        <p>Trip Date: <%= trip.tripDate.toDateString() %></p>
+        <p>Pickup Location: <%= passenger.pickupLocation %></p>
+        <p>Dropoff Location: <%= passenger.dropoffLocation %></p>
+        <p>Direction: <%= passenger.direction %></p>
+        <p>Number of Passengers: <%= passenger.numberOfPassengers %></p>
+        <p>Email: <%= passenger.email %></p>
+        <p>Phone Number: <%= passenger.phoneNumber %></p>
+        <p>Booking ID: <%= passenger._id %></p>
+
+        <div>
+            <a href="/trips/">Back to Home Page</a>
+        </div>
+        
+    </main>
+</body>
+
+</html>
