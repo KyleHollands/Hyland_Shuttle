@@ -46,10 +46,14 @@ app.get('/trips/new', (req, res) => {
     res.render('trips/new');
 });
 
+// Render the page to lookup a specific passenger trip by ID
 app.post('/trips/lookup', async (req, res) => {
     const { tripId } = req.body;
     const trip = await Trip.findOne({ 'trips._id': tripId });
     if (trip) {
+        console.log(tripId); // Log the passenger trip ID
+        console.log(trip._id); // Log the parent trip ID
+        console.log(trip); // Log the trip object
         res.render('trips/confirmation', { trip, passenger: trip.trips.id(tripId) });
     } else {
         res.status(404).send('Booking ID not found!');
@@ -64,6 +68,8 @@ app.get('/trips/lookup', (req, res) => {
 app.get('/trips/:id', async (req, res) => {
     const { id } = req.params;
     const trip = await Trip.findById(id);
+    console.log(id);
+    console.log(trip);
     res.render('trips/dateDetails', { trip });
 });
 
