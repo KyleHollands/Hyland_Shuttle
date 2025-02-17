@@ -1,5 +1,9 @@
+// ====================
+// Import the seed data
+// ====================
+
 const mongoose = require('mongoose'); // Import mongoose module
-const Trip = require('./models/trip'); // Import the Trip model
+const Trip = require('../models/trip'); // Import the Trip model
 
 mongoose.connect('mongodb://localhost:27017/shuttleTrips')
     .then(() => {

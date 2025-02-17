@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
 </head>
 
+<% const locations = ["Haliburton", "Minden", "Miners Bay", "Moore Falls", "Norland", "Coboconk", "Rosedale", "Fenelon Falls", "Cameron", "Lindsay", "Hwy. 35 & 7A", "Hwy 2 @ Hwy 35/115 Park & Ride", "Bowmanville", "Courtice", "Oshawa", "Scarborough", "Toronto"]; %>
+
 <body>
     <h1>Submit a New Trip (Users)</h1>
 
@@ -23,18 +25,18 @@
 
             <div>
                 <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name" maxlength="20">
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" maxlength="20" required>
             </div>
 
             <div>
                 <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" placeholder="Last Name" maxlength="20">
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" maxlength="20" required>
             </div>
 
             <div>
                 <label for="phoneNumber">Phone Number:</label>
                 <input type="text" name="phoneNumber" id="phoneNumber" placeholder="XXX-XXX-XXXX"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12">
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" required>
             </div>
 
             <div>
@@ -44,62 +46,36 @@
 
             <div>
                 <label for="numberOfPassengers"># of Passengers:</label>
-                <input type="number" name="numberOfPassengers" id="numberOfPassengers" placeholder="" min="1" max="10">
+                <input type="number" name="numberOfPassengers" id="numberOfPassengers" placeholder="" min="1" max="10" required>
             </div>
 
             <div>
                 <label for="pickupLocation">Pick-Up Location:</label>
-                <select name="pickupLocation" id="pickupLocation">
-                    <option value="Haliburton">Haliburton</option>
-                    <option value="Minden">Minden</option>
-                    <option value="Miners Bay">Miners Bay</option>
-                    <option value="Moore Falls">Moore Falls</option>
-                    <option value="Norland">Norland</option>
-                    <option value="Coboconk">Coboconk</option>
-                    <option value="Rosedale">Rosedale</option>
-                    <option value="Fenelon Falls">Fenelon Falls</option>
-                    <option value="Cameron">Cameron</option>
-                    <option value="Lindsay">Lindsay</option>
-                    <option value="Hwy. 35 & 7A">Hwy. 35 & 7A</option>
-                    <option value="Hwy 2 @ Hwy 35/115 Park & Ride">Hwy 2 @ Hwy 35/115 Park & Ride</option>
-                    <option value="Bowmanville">Bowmanville</option>
-                    <option value="Courtice">Courtice</option>
-                    <option value="Oshawa">Oshawa</option>
-                    <option value="Scarborough">Scarborough</option>
-                    <option value="Toronto">Toronto</option>
+                <select name="pickupLocation" id="pickupLocation" required>
+                    <% locations.forEach(location => { %>
+                        <option value="<%= location %>"><%= location %></option>
+                    <% }); %>
                 </select>
             </div>
 
             <div>
                 <label for="dropoffLocation">Drop-Off Location:</label>
-                <select name="dropoffLocation" id="dropoffLocation">
-                    <option value="Haliburton">Haliburton</option>
-                    <option value="Minden">Minden</option>
-                    <option value="Miners Bay">Miners Bay</option>
-                    <option value="Moore Falls">Moore Falls</option>
-                    <option value="Norland">Norland</option>
-                    <option value="Coboconk">Coboconk</option>
-                    <option value="Rosedale">Rosedale</option>
-                    <option value="Fenelon Falls">Fenelon Falls</option>
-                    <option value="Cameron">Cameron</option>
-                    <option value="Lindsay">Lindsay</option>
-                    <option value="Hwy. 35 & 7A">Hwy. 35 & 7A</option>
-                    <option value="Hwy 2 @ Hwy 35/115 Park & Ride">Hwy 2 @ Hwy 35/115 Park & Ride</option>
-                    <option value="Bowmanville">Bowmanville</option>
-                    <option value="Courtice">Courtice</option>
-                    <option value="Oshawa">Oshawa</option>
-                    <option value="Scarborough">Scarborough</option>
-                    <option value="Toronto">Toronto</option>
+                <select name="dropoffLocation" id="dropoffLocation" required>
+                    <% locations.forEach(location => { %>
+                        <option value="<%= location %>"><%= location %></option>
+                    <% }); %>
                 </select>
             </div>
 
             <button>Submit</button>
+
         </form>
 
         <div>
             <a href="/trips/">Back to Home Page</a>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
