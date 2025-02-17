@@ -1,8 +1,4 @@
-// ====================
-// Scripts for the website
-// ====================
-
-// Function to navigate to the selected trip
+// Function to navigate to the selected trip URL based on dropdown selection
 function navigateToTrip() {
     var dropdown = document.getElementById('datesDropdown');
     var selectedValue = dropdown.options[dropdown.selectedIndex].value;
@@ -11,17 +7,17 @@ function navigateToTrip() {
     }
 }
 
-// Locations for the trips
+// Array of locations for the shuttle service
 const locations = ['Haliburton', 'Allsaw', 'Minden', 'Miners Bay', 'Moore Falls', 'Norland', 'Coboconk', 'Rosedale', 'Fenelon Falls', 'Cameron', 'Lindsay', 'Hwy. 35 & 7A', 'Hwy 2 @ Hwy 35/115 Park & Ride', 'Bowmanville', 'Courtice', 'Oshawa', 'Scarborough', 'Toronto'];
 
-// Function to adjust the trip date to the correct timezone
+// Function to adjust the trip date to account for timezone offset
 const adjustTripDate = (tripDate) => {
     let adjustedTripDate = new Date(tripDate);
     adjustedTripDate.setMinutes(adjustedTripDate.getMinutes() + adjustedTripDate.getTimezoneOffset());
     return adjustedTripDate;
 };
 
-// Function to determine the direction of the trip
+// Function to determine the direction of the trip based on pickup and dropoff locations
 const determineDirection = (pickupLocation, dropoffLocation) => {
     const pickupIndex = locations.indexOf(pickupLocation);
     const dropoffIndex = locations.indexOf(dropoffLocation);
@@ -35,9 +31,7 @@ const determineDirection = (pickupLocation, dropoffLocation) => {
     }
 };
 
-// ====================
-// Export the helper functions
-// ====================
+// Exporting functions for use in other modules
 module.exports = {
     adjustTripDate,
     determineDirection

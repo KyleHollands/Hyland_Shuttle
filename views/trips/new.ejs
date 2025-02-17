@@ -17,7 +17,7 @@
         <form action="/trips/allDates" method="POST">
             <div>
                 <label for="tripDate">Trip Date:</label>
-                <input type="date" name="tripDate" id="tripDate" placeholder="Trip Date">
+                <input type="date" name="tripDate" id="tripDate" placeholder="Trip Date" required>
             </div>
             <script>
                 document.getElementById('tripDate').min = new Date().toLocaleDateString('en-CA');
@@ -68,7 +68,6 @@
             </div>
 
             <button>Submit</button>
-
         </form>
 
         <div>
